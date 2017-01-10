@@ -10,14 +10,8 @@ namespace Snake
     {
         static void Main()
         {
-            int x1 = 1;
-            int y1 = 3;
-            char sym1 = '*';
-            Draw(x1, y1, sym1);
-            int x2 = 5;
-            int y2 = 4;
-            char sym2 = '#';
-            Draw(x2, y2, sym2);
+            Draw(1, 3, '*');
+            Draw(5, 4, '#');
 
 
             Console.ReadLine();
