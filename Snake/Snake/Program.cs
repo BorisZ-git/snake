@@ -15,8 +15,18 @@ namespace Snake
             Point p2 = new Point( 5, 4, '#');
             p2.Draw();
 
+            p1 = p2;
+            Move(p2, 10, 10);
+            p1.Draw();
+            Console.ReadKey();
+                        
 
-            Console.ReadLine();
         }
+        public static void Move(Point p, int dx, int dy)
+        {
+            p.x = p.x + dx;
+            p.y = p.y + dy;
+        }
+
     }
 }
