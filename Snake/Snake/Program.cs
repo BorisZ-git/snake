@@ -16,12 +16,12 @@ namespace Snake
             p2.Draw();
 
             HorizontalLine wall_1 = new HorizontalLine(3, 10, 10, '*');
-            wall_1.DrawHorLine();
+            wall_1.DrawLine();
             
             Console.ReadLine();
 
             VerticalLine Vwall_1 = new VerticalLine(4, 12, 11, '#');
-            Vwall_1.DrawVerLine();
+            Vwall_1.DrawLine();
 
             Console.ReadLine();
 
