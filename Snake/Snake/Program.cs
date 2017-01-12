@@ -17,6 +17,16 @@ namespace Snake
 
 
             Console.ReadLine();
+
+            Wall hor1 = new Wall("x", 1, 15, 1, '#');
+            hor1.DrawWall();
+            Console.ReadLine();
+
+            Wall ver1 = new Wall("y", 1, 15,15,'@');
+            ver1.DrawWall();
+            Console.ReadLine();
+
+
         }
     }
 }
