@@ -33,7 +33,7 @@ namespace Snake
         {
             foreach (Point i in pList)
             {
-                Console.Write(i);
+                i.Draw();
             }
         }
     }
