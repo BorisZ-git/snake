@@ -15,8 +15,16 @@ namespace Snake
             Point p2 = new Point( 5, 4, '#');
             p2.Draw();
 
+            HorizontalLine wall_1 = new HorizontalLine(3, 10, 10, '*');
+            wall_1.DrawHorLine();
+            
+            Console.ReadLine();
+
+            VerticalLine Vwall_1 = new VerticalLine(4, 12, 11, '#');
+            Vwall_1.DrawVerLine();
 
             Console.ReadLine();
+
         }
     }
 }
