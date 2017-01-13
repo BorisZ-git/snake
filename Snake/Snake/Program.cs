@@ -10,19 +10,26 @@ namespace Snake
     {
         static void Main()
         {
-            Point p1 = new Point( 1, 3, '*');
-            p1.Draw();
-            Point p2 = new Point( 5, 4, '#');
-            p2.Draw();
+            //Set the window size
+            Int16 width = 80, heigth = 25;
+            Console.Title = "Snake";
+            Console.SetWindowPosition(0, 0);
+            Console.SetWindowSize(width, heigth);
+            Console.SetBufferSize(width, heigth);
+            Console.ForegroundColor = ConsoleColor.Green;
+            //Draw the frame
+            HorizontalLine UpLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine DownLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine LeftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine RightLine = new VerticalLine(0, 24, 78, '+');
+            UpLine.DrawLine();
+            DownLine.DrawLine();
+            LeftLine.DrawLine();
+            RightLine.DrawLine();
+            //Start class Snake
 
-            HorizontalLine wall_1 = new HorizontalLine(3, 10, 10, '*');
-            wall_1.DrawLine();
+
             
-            Console.ReadLine();
-
-            VerticalLine Vwall_1 = new VerticalLine(4, 12, 11, '#');
-            Vwall_1.DrawLine();
-
             Console.ReadLine();
 
         }
