@@ -11,12 +11,8 @@ namespace Snake
         static void Main()
         {
             //Set the window size
-            Int16 width = 80, heigth = 25;
-            Console.Title = "Snake";
-            Console.SetWindowPosition(0, 0);
-            Console.SetWindowSize(width, heigth);
-            Console.SetBufferSize(width, heigth);
-            Console.ForegroundColor = ConsoleColor.Green;
+            Window();
+
             //Draw the frame
             HorizontalLine UpLine = new HorizontalLine(0, 78, 0, '+');
             HorizontalLine DownLine = new HorizontalLine(0, 78, 24, '+');
@@ -29,11 +25,20 @@ namespace Snake
             //Start class Snake
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
+
             Console.ReadLine();
             snake.DrawLine();         
             Console.ReadLine();
-
-
         }
+        static void Window()
+        {
+            Int16 width = 80, heigth = 25;
+            Console.Title = "Snake";
+            Console.SetWindowPosition(0, 0);
+            Console.SetWindowSize(width, heigth);
+            Console.SetBufferSize(width, heigth);
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+
     }
 }
