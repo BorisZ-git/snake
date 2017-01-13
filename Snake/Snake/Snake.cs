@@ -31,6 +31,19 @@ namespace Snake
             tail.Clear();
             head.Draw();
         }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pLineList.Add(food);
+                return true;
+            }
+            else return false;
+        }
+
         public Point GetNextPoint()
         {
             Point head = pLineList.Last();
