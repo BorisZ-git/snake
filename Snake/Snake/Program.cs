@@ -13,29 +13,23 @@ namespace Snake
         {
             //Set the window size
             Window();
-
             //Draw the frame
-            HorizontalLine UpLine = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine DownLine = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine LeftLine = new VerticalLine(0, 24, 0, '+');
-            VerticalLine RightLine = new VerticalLine(0, 24, 78, '+');
-            UpLine.DrawLine();
-            DownLine.DrawLine();
-            LeftLine.DrawLine();
-            RightLine.DrawLine();
+            Frame();
             //Start class Snake
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-
             Console.ReadLine();
             snake.DrawLine();
-            for (int i =0; i<20;i++)
+            while(true)
             {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HadleKey(key.Key);
+                }
+                Thread.Sleep(100);               
                 snake.Move();
-                Thread.Sleep(300);
             }
-
-            Console.ReadLine();
         }
         static void Window()
         {
@@ -45,6 +39,17 @@ namespace Snake
             Console.SetWindowSize(width, heigth);
             Console.SetBufferSize(width, heigth);
             Console.ForegroundColor = ConsoleColor.Green;
+        }
+        static void Frame()
+        {
+            HorizontalLine UpLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine DownLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine LeftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine RightLine = new VerticalLine(0, 24, 78, '+');
+            UpLine.DrawLine();
+            DownLine.DrawLine();
+            LeftLine.DrawLine();
+            RightLine.DrawLine();
         }
 
     }
