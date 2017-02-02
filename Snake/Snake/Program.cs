@@ -14,12 +14,9 @@ namespace Snake
             //Start class Snake
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-            //Choose
-            Console.WriteLine("Играем: ");
-            var choose=Console.ReadLine();
-            //Use Choose
-            if (choose == "start")
-            {
+
+            
+          
                 //Set the window size
                 Window();
                 //Draw the frame
@@ -50,27 +47,7 @@ namespace Snake
                         snake.HadleKey(key.Key);
                     }
                 }
-            }
-            else
-            {
-                VerticalLine v1 = new VerticalLine(3,6,5,'&' );
-                HorizontalLine h1 = new HorizontalLine(13, 16, 15, '@');
-                //Draw(v1);// v1.DrawLine();
-                //Draw(h1);//h1.DrawLine();
-                Point PolyP1 = new Point(7, 7, '*');
-                Figure fSnake = new Snake(PolyP1, 5, Direction.RIGHT);
-                //Draw(fSnake);
-
-                List<Figure> figures = new List<Figure>();
-                figures.Add(fSnake);
-                figures.Add(h1);
-                figures.Add(v1);
-                foreach (var f in figures)
-                {
-                    f.DrawLine();
-                }
-                Console.ReadLine();
-            }
+            
         }
         static void Window()
         {
