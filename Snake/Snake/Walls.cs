@@ -7,23 +7,38 @@ using System.Threading.Tasks;
 namespace Snake
 {
     class Walls
-    {
-        int maphight;
-        int mapwidth;
-        List<Figure> wall = new List<Figure>();
-        public Walls (int x,int y)
-        {
-            maphight = y;
-            mapwidth = x;
-            HorizontalLine wall1 = new HorizontalLine();
-            HorizontalLine wall2 = new HorizontalLine();
-            VerticalLine wall3 = new VerticalLine();
-            VerticalLine wall4 = new VerticalLine();
-            wall.Add(wall1);
-            wall.Add(wall2);
-            wall.Add(wall3);
-            wall.Add(wall4);
+    {           
+        List<Figure> walls = new List<Figure>();
 
+        public Walls (int mapwidth, int mapheight)
+        {
+            HorizontalLine wall1 = new HorizontalLine(0, mapwidth - 2, 0, '+');
+            HorizontalLine wall2 = new HorizontalLine(0, mapwidth - 2, 29, '+');
+            VerticalLine wall3 = new VerticalLine(0, mapheight - 1, 0, '+');
+            VerticalLine wall4 = new VerticalLine(0, mapheight - 1, 78, '+');
+
+            walls.Add(wall1);
+            walls.Add(wall2);
+            walls.Add(wall3);
+            walls.Add(wall4);        
+        }
+        internal bool IsHit (Figure figure)
+        {
+            foreach (var wall in walls)
+            {
+                if (wall.IsHit(figure))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void Draw()
+        {
+            foreach (var wall in walls)
+            {
+                wall.DrawLine();
+            }
         }
     }
 }

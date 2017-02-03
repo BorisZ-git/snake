@@ -13,14 +13,12 @@ namespace Snake
         {
             //Start class Snake
             Point p = new Point(4, 5, '*');
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
-
-            
-          
-                //Set the window size
-                Window();
-                //Draw the frame
-                Frame();
+            Snake snake = new Snake(p, 4, Direction.RIGHT); 
+            //Set the window size
+            Window();
+            //Build Wall into the Frame
+            Walls frame = new Walls(80, 30);
+            frame.Draw();
                 //Draw the Food
                 FoodCreator foodcreator = new FoodCreator(80, 25, '$');
                 Point food = foodcreator.CreateFood();
@@ -29,6 +27,10 @@ namespace Snake
                 snake.DrawLine();
                 while (true)
                 {
+                    if (frame.IsHit(snake) || snake.IsHitTail())
+                    {
+                        break;
+                    }
                     if (snake.Eat(food))
                     {
                         food = foodcreator.CreateFood();
@@ -47,32 +49,19 @@ namespace Snake
                         snake.HadleKey(key.Key);
                     }
                 }
+            Console.Clear();
+            Console.SetCursorPosition(50, 13);
+            Console.WriteLine("The game is over!");
+            Console.SetCursorPosition(50, 14);
+            Console.Write("GoodBye");
+            Console.ReadLine();
+            
             
         }
         static void Window()
         {
-            Int16 width = 80, heigth = 25;
             Console.Title = "Snake";
-            Console.SetWindowPosition(0, 0);
-            Console.SetWindowSize(width, heigth);
-            Console.SetBufferSize(width, heigth);
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetBufferSize(120, 30);
         }
-        static void Frame()
-        {
-            HorizontalLine UpLine = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine DownLine = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine LeftLine = new VerticalLine(0, 24, 0, '+');
-            VerticalLine RightLine = new VerticalLine(0, 24, 78, '+');
-            UpLine.DrawLine();
-            DownLine.DrawLine();
-            LeftLine.DrawLine();
-            RightLine.DrawLine();
-        }
-        static void Draw (Figure figure)
-        {
-            figure.DrawLine();
-        }
-
     }
 }

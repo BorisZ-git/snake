@@ -20,6 +20,18 @@ namespace Snake
                 pLineList.Add(p);
             }
         }
+        internal bool IsHitTail ()
+        {
+            var head = pLineList.Last();
+            for (int i = 0; i < pLineList.Count - 2; i++)
+            {
+                if (head.IsHit(pLineList[i]))
+                {
+                    return true;
+                }
+            }
+            return false;    
+        }
 
         internal void Move()
         {
